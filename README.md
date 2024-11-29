@@ -1,6 +1,10 @@
-# 🌦️ weather_service MCP サーバー
+<div align="center">
 
-MCPサーバープロジェクト
+![](aseets/header.svg)
+
+## 🌦️ weather_service MCP サーバー
+
+</div>
 
 ## 🧩 コンポーネント
 
