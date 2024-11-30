@@ -1,44 +1,45 @@
-# weather_service MCP server
+<div align="center">
 
-A MCP server project
+![](aseets/header.svg)
 
-## Components
+## 🌦️ weather_service MCP サーバー
 
-### Resources
+</div>
 
-The server implements a simple note storage system with:
-- Custom note:// URI scheme for accessing individual notes
-- Each note resource has a name, description and text/plain mimetype
+## 🧩 コンポーネント
 
-### Prompts
+### 📚 リソース
 
-The server provides a single prompt:
-- summarize-notes: Creates summaries of all stored notes
-  - Optional "style" argument to control detail level (brief/detailed)
-  - Generates prompt combining all current notes with style preference
+このサーバーは、シンプルなノート保存システムを実装しています：
+- カスタム note:// URIスキームで個別のノートにアクセス
+- 各ノートリソースには、名前、説明、text/plainのマイムタイプがあります
 
-### Tools
+### 💡 プロンプト
 
-The server implements one tool:
-- add-note: Adds a new note to the server
-  - Takes "name" and "content" as required string arguments
-  - Updates server state and notifies clients of resource changes
+サーバーは単一のプロンプトを提供します：
+- summarize-notes：保存されている全てのノートの要約を作成
+  - オプションの"style"引数で詳細レベルを制御（brief/detailed）
+  - 全ての現在のノートとスタイル設定を組み合わせてプロンプトを生成
 
-## Configuration
+### 🛠️ ツール
 
-[TODO: Add configuration details specific to your implementation]
+サーバーは1つのツールを実装しています：
+- add-note：新しいノートをサーバーに追加
+  - "name"と"content"を必須の文字列引数として受け取り
+  - サーバーの状態を更新し、リソースの変更をクライアントに通知
 
-## Quickstart
 
-### Install
+## 🚀 クイックスタート
+
+### 📥 インストール
 
 #### Claude Desktop
 
-On MacOS: `~/Library/Application\ Support/Claude/claude_desktop_config.json`
-On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
+MacOSの場合: `~/Library/Application\ Support/Claude/claude_desktop_config.json`
+Windowsの場合: `%APPDATA%/Claude/claude_desktop_config.json`
 
 <details>
-  <summary>Development/Unpublished Servers Configuration</summary>
+  <summary>開発/未公開サーバーの設定</summary>
   ```
   "mcpServers": {
     "weather_service": {
@@ -55,7 +56,7 @@ On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
 </details>
 
 <details>
-  <summary>Published Servers Configuration</summary>
+  <summary>公開サーバーの設定</summary>
   ```
   "mcpServers": {
     "weather_service": {
@@ -68,44 +69,41 @@ On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
   ```
 </details>
 
-## Development
+## 👨‍💻 開発
 
-### Building and Publishing
+### 🏗️ ビルドと公開
 
-To prepare the package for distribution:
+パッケージを配布用に準備するには：
 
-1. Sync dependencies and update lockfile:
+1. 依存関係を同期しロックファイルを更新：
 ```bash
 uv sync
 ```
 
-2. Build package distributions:
+2. パッケージのディストリビューションをビルド：
 ```bash
 uv build
 ```
 
-This will create source and wheel distributions in the `dist/` directory.
+これにより、`dist/`ディレクトリにソースとホイールのディストリビューションが作成されます。
 
-3. Publish to PyPI:
+3. PyPIに公開：
 ```bash
 uv publish
 ```
 
-Note: You'll need to set PyPI credentials via environment variables or command flags:
-- Token: `--token` or `UV_PUBLISH_TOKEN`
-- Or username/password: `--username`/`UV_PUBLISH_USERNAME` and `--password`/`UV_PUBLISH_PASSWORD`
+注意：PyPIの認証情報は環境変数またはコマンドフラグで設定する必要があります：
+- トークン：`--token`または`UV_PUBLISH_TOKEN`
+- またはユーザー名/パスワード：`--username`/`UV_PUBLISH_USERNAME`と`--password`/`UV_PUBLISH_PASSWORD`
 
-### Debugging
+### 🔍 デバッグ
 
-Since MCP servers run over stdio, debugging can be challenging. For the best debugging
-experience, we strongly recommend using the [MCP Inspector](https://github.com/modelcontextprotocol/inspector).
+MCPサーバーはstdioを介して実行されるため、デバッグが難しい場合があります。最適なデバッグ体験のために、[MCP Inspector](https://github.com/modelcontextprotocol/inspector)の使用を強く推奨します。
 
-
-You can launch the MCP Inspector via [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) with this command:
+[`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)を使用して、次のコマンドでMCP Inspectorを起動できます：
 
 ```bash
 npx @modelcontextprotocol/inspector uv --directory C:\Prj\weather_service run weather-service
 ```
 
-
-Upon launching, the Inspector will display a URL that you can access in your browser to begin debugging.
+起動時、InspectorはブラウザでアクセスできるURLを表示し、デバッグを開始できます。
